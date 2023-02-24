@@ -6,9 +6,9 @@
 
 int main(int argc, char *argv[]) {
 	
-	FILE *fptr;
+	FILE *dosya;
 
-	fptr = fopen("binary.txt", "w");
+	dosya = fopen("binary.bin", "w");
 	
 	/* 
 		Decimal To Binary
@@ -26,19 +26,19 @@ int main(int argc, char *argv[]) {
 	int i;
 	for(i = 0; i<100; i++)
 	{
-		fptr = fopen("binary.txt", "a");
+		dosya = fopen("binary.bin", "a");
 
 
 		int sayi = rand()%101; // rasgele sayý oluþturma 0 ile 100 arasýnda 
 					
-		fprintf(fptr, "sayý => %d\n", sayi);
+		//fprintf(fptr, "sayý => %d\n", sayi);
 		
 
-		int binary[7] = {0,0,0,0,0,0,0};;
+		int binary[7] = {0,0,0,0,0,0,0};
 
 		// sayýlarýmýz 1-100 arasýnda olduðu için 7 elemanlý bir diziye ihtiyaç duyuyoruz 2^7 = 128
 		
-		printf("%d\n" , sayi);
+		//printf("%d\n" , sayi);
 
 		// 
 				
@@ -69,32 +69,51 @@ int main(int argc, char *argv[]) {
 			
 			if(binary[k] == 1 || binary[k] == 0)
 			{
-				printf("%d", binary[k]);
+				// printf("%d", binary[k]);
 				
-				fprintf(fptr, "%d", binary[k]);
+				fprintf(dosya, "%d", binary[k]);
 
 			}
 			
 		}
 
-		printf("\n*********************************\n");
+		//printf("\n*********************************\n");
 		
-		fptr = fopen("binary.txt", "a");
-		fprintf(fptr, "\n");
-
+		//dosya = fopen("binary.txt", "a");
+		//fprintf(dosya, "\n");
 		
 	}
 	
+	fclose(dosya);
 
-
-
-	fclose(fptr);
-
+		
+	char karakter[7][20];
+	int x=0;
 	
+	if((dosya = fopen("binary.txt", "rb") != NULL ))
+	{
+		
+		while(!feof(dosya))
+		{
+			fscanf(dosya, "%s", &karakter[x]);
+			printf("%s", karakter[x]);
+			x++;
+		}
+	}
+	else
+	{
+		printf("dosya bulunamadý");
+	}
+	
+	
+   
+   
+   
+   
+   fclose(dosya);
 	
 	return 0;
 }
-
 
 
 
