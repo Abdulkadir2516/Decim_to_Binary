@@ -37,15 +37,16 @@ int main(int argc, char *argv[]) {
 	
 	}
 	
+	
 	int j;
 	for(j=0; j<sizeof(bin); j=j+7)
 	{
 		int k;
 		for(k=j; k<j+7; k++)
 		{
-			printf("%c", bin[k]);
+			//printf("%c", bin[k]);
 		}
-		printf("\n");
+		//printf("\n");
 	}
 	
 	
@@ -73,7 +74,6 @@ int main(int argc, char *argv[]) {
 				{
 					printf("bu sayý var");
 					break;
-			
 				}
 				
 			}

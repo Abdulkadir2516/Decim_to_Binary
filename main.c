@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
 	
 	FILE *dosya;
 
-	dosya = fopen("binary.bin", "w");
+	dosya = fopen("binary.txt", "w");
 	
 	/* 
 		Decimal To Binary
@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
 	int i;
 	for(i = 0; i<100; i++)
 	{
-		dosya = fopen("binary.bin", "a");
+		dosya = fopen("binary.txt", "a");
 
 
 		int sayi = rand()%101; // rasgele sayý oluþturma 0 ile 100 arasýnda 
@@ -86,31 +86,6 @@ int main(int argc, char *argv[]) {
 	
 	fclose(dosya);
 
-		
-	char karakter[7][20];
-	int x=0;
-	
-	if((dosya = fopen("binary.txt", "rb") != NULL ))
-	{
-		
-		while(!feof(dosya))
-		{
-			fscanf(dosya, "%s", &karakter[x]);
-			printf("%s", karakter[x]);
-			x++;
-		}
-	}
-	else
-	{
-		printf("dosya bulunamadý");
-	}
-	
-	
-   
-   
-   
-   
-   fclose(dosya);
 	
 	return 0;
 }
