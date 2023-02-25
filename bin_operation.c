@@ -7,11 +7,11 @@ int main(int argc, char *argv[]) {
 	
 	// binary file reading and writing
 	
-	FILE *dd;
+	FILE *dosya;
 	char bin[700];
-	char ad[20];
-	dd=fopen("./binary.txt","r");
-	if (dd == NULL)
+	char byte[7];
+	dosya=fopen("./binary.txt","r");
+	if (dosya == NULL)
 	{
 		printf("Sürücü veya dosya bulunamadý\n");
 
@@ -19,21 +19,21 @@ int main(int argc, char *argv[]) {
 	else
 	{ 
 		int i =0;
-		while (!feof(dd))
+		while (!feof(dosya))
 		{ 
-			fgets(ad, 8, dd);
+			fgets(byte, 8, dosya);
 			
 			int x;
 			for(x = 0; x<7; x++)
 			{
-				bin[i] = ad[x];
+				bin[i] = byte[x];
 				i++;
 			}
 			
 			
 		}
 		
-	fclose(dd);
+	fclose(dosya);
 	
 	}
 	
@@ -49,6 +49,42 @@ int main(int argc, char *argv[]) {
 	}
 	
 	
+	printf("Arama yapmak istediðiniz binary kodu giriniz: ");
+	
+	char bin_code[7];
+	
+	scanf("%s", bin_code);
+	
+	// arama
+	int q;
+	int say;
+	for(q=0; q<sizeof(bin); q=q+7)
+	{
+		int w;
+		int d = 0;
+		say = 0;
+		for(w=q; w<q+7; w++)
+		{
+			if(bin_code[d] == bin[w])
+			{
+				say++;
+				
+				if(say==7)
+				{
+					printf("bu sayý var");
+					break;
+			
+				}
+				
+			}
+			d++;
+			
+		}
+		
+	}
+	
+	
+
 	
 	
 	
